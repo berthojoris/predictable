@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-body">
                 {{-- <div class="alert alert-primary informasi" role="alert">Input 4 Nomor Yang Keluar Kemarin</div> --}}
-                <div class="alert alert-primary informasi" role="alert">Masih Belum Bisa</div>
+                <div class="alert alert-warning informasi" role="alert">Masih Belum Bisa</div>
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
