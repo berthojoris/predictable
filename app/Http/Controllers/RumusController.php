@@ -64,12 +64,51 @@ class RumusController extends Controller
         return view('singapore_output', compact('output'));
     }
 
-    public function sydneyProses(Request $request)
+    public function hongkongProses(Request $request)
     {
-        //
+        $messages = [
+            'required'  => 'Angka terakhir keluar harus di isi',
+            'digits'  => 'Harus diisi 4 digit angka'
+        ];
+
+        $validator = Validator::make($request->all(), [
+            'last_number' => 'required|digits:4',
+        ], $messages);
+
+        if ($validator->fails()) {
+            return redirect('/hongkong')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $pushData = [];
+
+        $last_number = request('last_number');
+        $lastNumber = $last_number[3];
+        $secondFromLast = $last_number[2];
+
+        for ($i = 0; $i <= 5; $i++) {
+            if (count($pushData) == 0) {
+                $proses = increaseHK($lastNumber);
+                array_push($pushData, $proses);
+            } else {
+                $proses = increaseHK($pushData[$i - 1]);
+                array_push($pushData, $proses);
+            }
+        }
+
+        unset($pushData[0]);
+        unset($pushData[3]);
+        unset($pushData[5]);
+
+        $nomorHidup = implode("", $pushData);
+
+        $kepalaEkorTunggal = hkCalculateTwoDigits($lastNumber, $secondFromLast);
+
+        return view('hongkong_output', compact('nomorHidup', 'kepalaEkorTunggal'));
     }
 
-    public function hk_proses(Request $request)
+    public function sydneyProses(Request $request)
     {
         //
     }
