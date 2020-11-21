@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('template/favicon.ico') }}"/>
     <title>Prediksi | BBFS</title>
 
     <!-- Bootstrap core CSS -->
