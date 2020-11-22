@@ -56,3 +56,66 @@ if (!function_exists('hkCalculateTwoDigits')) {
         return $result;
     }
 }
+
+if (!function_exists('increaseHKCondition')) {
+    function increaseHKCondition($nomor, $condition = null)
+    {
+        if ($nomor >= 0 && $condition == "first") {
+            return $nomor;
+        } else if ($nomor == 9 && $condition === null) {
+            return 0;
+        } else if ($nomor == 0 && $condition === null) {
+            return $nomor + 1;
+        } else if ($nomor > 0 && $condition === null) {
+            return $nomor + 1;
+        } else if ($nomor > 0 && $condition == "first") {
+            return $nomor;
+        } else {
+            logger("Kemungkinan Fail" . $nomor . " | " . $condition);
+            return $nomor;
+        }
+    }
+}
+
+if (!function_exists('ganjilGenap')) {
+    function ganjilGenap($bilangan)
+    {
+        if (($bilangan % 2) == 0) {
+            return "genap";
+        } else {
+            return "ganjil";
+        }
+    }
+}
+
+if (!function_exists('bbfsHongkong')) {
+    function bbfsHongkong($second, $third)
+    {
+        $f1 = $second + $third;
+        $convert = twoDigitConvert($f1);
+
+        $arr = [];
+
+        for ($i = 0; $i <= 9; $i++) {
+            if (empty($arr)) {
+                array_push($arr, increaseHKCondition($convert, "first"));
+            } else {
+                array_push($arr, increaseHKCondition($arr[$i - 1]));
+            }
+        }
+
+        if (ganjilGenap($convert) == "ganjil") {
+            unset($arr[0]);
+            unset($arr[1]);
+            unset($arr[5]);
+        } else {
+            unset($arr[1]);
+            unset($arr[2]);
+            unset($arr[5]);
+        }
+
+        $output = implode("", $arr);
+
+        return $output;
+    }
+}

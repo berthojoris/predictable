@@ -105,7 +105,9 @@ class RumusController extends Controller
 
         $kepalaEkorTunggal = hkCalculateTwoDigits($lastNumber, $secondFromLast);
 
-        return view('hongkong_output', compact('nomorHidup', 'kepalaEkorTunggal'));
+        $bbfs = bbfsHongkong($last_number[1], $last_number[2]);
+
+        return view('hongkong_output', compact('nomorHidup', 'kepalaEkorTunggal', 'bbfs'));
     }
 
     public function sydneyProses(Request $request)
