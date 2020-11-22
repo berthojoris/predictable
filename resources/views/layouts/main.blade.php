@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('template/favicon.ico') }}"/>
-    <title>Prediksi | BBFS</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('template/favicon.ico') }}" />
+    <title>Prediksi</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('template/assets/dist/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -35,13 +35,18 @@
         .container-xl {
             max-width: 100%;
         }
-        dl, ol, ul {
+
+        dl,
+        ol,
+        ul {
             margin-top: 0;
             margin-bottom: 0rem;
         }
+
         .bigSize {
             font-size: 40px;
         }
+
         .informasi {
             font-size: 20px;
         }
@@ -51,8 +56,9 @@
 
 <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="{{ route('index') }}">Predictable</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="{{ route('index') }}">Predictable</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">

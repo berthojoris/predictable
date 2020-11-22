@@ -1,6 +1,6 @@
 @extends('layouts.main') @section('content')
 <div class="jumbotron">
-    <h1>All Hongkong</h1>
+    <h1>Hongkong</h1>
 </div>
 <div class="row">
     <div class="col-md-12">

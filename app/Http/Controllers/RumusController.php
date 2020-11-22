@@ -112,6 +112,23 @@ class RumusController extends Controller
 
     public function sydneyProses(Request $request)
     {
-        //
+        $messages = [
+            'required'  => 'Angka terakhir keluar harus di isi',
+            'digits'  => 'Harus diisi 4 digit angka'
+        ];
+
+        $validator = Validator::make($request->all(), [
+            'last_number' => 'required|digits:4',
+        ], $messages);
+
+        if ($validator->fails()) {
+            return redirect('/sydney')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $pushData = [];
+
+        $last_number = request('last_number');
     }
 }
