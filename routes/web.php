@@ -21,3 +21,5 @@ Route::get('/hongkong', 'RumusController@hongkong')->name('hongkong');
 Route::post('/singapore/proses', 'RumusController@singaporeProses')->name('sgp_proses');
 Route::post('/sydney/proses', 'RumusController@sydneyProses')->name('syd_proses');
 Route::post('/hongkong/proses', 'RumusController@hongkongProses')->name('hk_proses');
+
+Route::get('/email', 'RumusController@email')->name('email');

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Notif;
 use App\Models\Isi;
 use App\Models\Rumus;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class RumusController extends Controller
@@ -130,5 +132,11 @@ class RumusController extends Controller
         $pushData = [];
 
         $last_number = request('last_number');
+    }
+
+    public function email()
+    {
+        Mail::to('berthojoris@gmail.com')->send(new Notif());
+        return "OK";
     }
 }
